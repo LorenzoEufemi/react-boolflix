@@ -1,68 +1,43 @@
 import { useContext, useEffect } from "react";
 import GlobalContext from "../contexts/GlobalContext";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import AppCard from "./AppCard";
+
 
 
 function FilmList() {
     const { films, series } = useContext(GlobalContext);
-   const urlImg = "https://image.tmdb.org/t/p/w92";
-
-
-    useEffect(() => {
-        console.log(films);
-    }, []);
-
-    const flatLanguage = (language) => {
-        let flat = ""
-        if (language === "en") {
-            flat = "public/images/en.png"
-        } else if (language === "it") {
-            flat = "public/images/it.png"
-        } else {
-            flat = "public/images/placeholder.png"
-        }
-        return flat
-    };
-    const starsFilm = (vote) => {
-        let stars = [];
-        for (let i = 0; i < Math.ceil(vote / 2);i++){
-            stars.push(<FontAwesomeIcon key={i} icon={faStar} />)
-        }
-        return stars
-    }
+   
 
 
 
     return (
-        <ul>
+        <section>
             {films.length === 0  ? (
                 <p>Nessun film trovato</p>
             ) : (
                 films.map((film) => (
-                    <li key={film.id}>
-                        <h2>{film.title}</h2>
-                        <h4>{film.original_title}</h4>
-                        <img src={`${urlImg}${film.poster_path}`} alt="poster del film" />
-                        <img src={flatLanguage(film.original_language)} alt="bandiera" />
-                        <p>{starsFilm(film.vote_average)}</p>
-                    </li>
-                ))
-            )}
+                    <AppCard key={film.id}
+                    title={film.title}
+                     original_title={film.original_title}
+                      poster={film.poster_path} 
+                      language={film.original_language}
+                      vote={film.vote_average} />
+                    
+            )))}
              {series.length === 0 ? (
                 <p>Nessuna serie trovata</p>
             ) : (
                 series.map((serie) => (
-                    <li key={serie.id}>
-                        <h2>{serie.name}</h2>
-                        <h4>{serie.original_name}</h4>
-                        <img src={`${urlImg}${serie.poster_path}`} alt="poster del film" />
-                        <img src={flatLanguage(serie.original_language)} alt="" />
-                        <p>{starsFilm(serie.vote_average)}</p>
-                    </li>
+                    <AppCard key={serie.id}
+                    title={serie.name}
+                    original_title={serie.original_name}
+                     poster={serie.poster_path} 
+                     language={serie.original_language}
+                     vote={serie.vote_average} />
+                   
                 ))
             )}
-        </ul>
+        </section>
     )
 
 }
