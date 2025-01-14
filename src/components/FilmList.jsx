@@ -3,6 +3,7 @@ import GlobalContext from "../contexts/GlobalContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
+
 function FilmList() {
     const { films, series } = useContext(GlobalContext);
    const urlImg = "https://image.tmdb.org/t/p/w92";
@@ -25,7 +26,7 @@ function FilmList() {
     };
     const starsFilm = (vote) => {
         let stars = [];
-        for (let i = 0; i < Math.ceil(vote);i++){
+        for (let i = 0; i < Math.ceil(vote / 2);i++){
             stars.push(<FontAwesomeIcon key={i} icon={faStar} />)
         }
         return stars
@@ -57,7 +58,7 @@ function FilmList() {
                         <h4>{serie.original_name}</h4>
                         <img src={`${urlImg}${serie.poster_path}`} alt="poster del film" />
                         <img src={flatLanguage(serie.original_language)} alt="" />
-                        <p>{serie.vote_average}</p>
+                        <p>{starsFilm(serie.vote_average)}</p>
                     </li>
                 ))
             )}
