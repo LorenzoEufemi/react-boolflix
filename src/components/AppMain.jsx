@@ -3,10 +3,9 @@ import FilmList from "./FilmList";
 function AppMain() {
 
     return(
-        <div>
-            <h1>Main</h1>
+        <main className="grey">
             <FilmList />
-        </div>
+        </main>
     )
 }
 export default AppMain;

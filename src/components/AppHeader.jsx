@@ -3,10 +3,10 @@ import SearchBar from "./SearchBar";
 function AppHeader() {
 
     return (
-        <div>
-            <h1>Header</h1>
+        <section className="header">
+            <h1 className="title-header">BOOLFLIX</h1>
             <SearchBar />
-        </div>
+        </section>
     )
 }
 export default AppHeader;

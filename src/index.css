@@ -1,0 +1,95 @@
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    
+}
+
+img{
+    max-width: 100%;
+}
+/* LAYOUT */
+.container{
+   
+    margin: 0 auto ;
+    
+}
+.header{
+    background-color: black;
+    color: red;
+    display: flex;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+}
+.title-header {
+    margin-left: 30px;
+}
+.search{
+    margin-right: 50px;
+    display: flex;
+    
+}
+.film-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    row-gap: 30px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+
+}
+.flat{
+    width: 20px;
+}
+.card{
+    border: 1px solid lightgray;
+    width: 200px;
+    height: 300px;
+    color: white;
+    font-size: 11px;
+    text-overflow: ellipsis;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+}
+.card-details {
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    
+}
+
+.img{
+    object-fit: cover;
+    height: 100%;
+} 
+.yellow {
+    color: gold;
+}
+.white {
+color: white;
+}
+.grey {
+    background-color: #505050;
+    min-height: 750px;
+}
+.gras {
+    font-weight: 600;
+}
+.minu {
+    font-weight: 100;
+}
+.card:hover .card-details{
+    display: block;
+}
+.card:hover .img{
+    display: none;
+}
+

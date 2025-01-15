@@ -11,32 +11,32 @@ function App() {
 
   const [searchValue, setSearchValue] = useState(" ");
   const [films, setFilms] = useState([]);
-  const [series, setSeries]= useState([]);
+  const [series, setSeries] = useState([]);
 
-   async function getMovies() {
-         const resp = await axios.get(`${apiUrl}/search/movie`, {
-             params: {
-                api_key: apiKey,
-                 query: searchValue,
-             },
-         });
-         setFilms(resp.data.results); 
-        console.log(resp.data.results);
+  async function getMovies() {
+    const resp = await axios.get(`${apiUrl}/search/movie`, {
+      params: {
+        api_key: apiKey,
+        query: searchValue,
+      },
+    });
+    setFilms(resp.data.results);
+    console.log(resp.data.results);
 
-        const respo = await axios.get(`${apiUrl}/search/tv`, {
-           params: {
-               api_key: apiKey,
-              query: searchValue,
-             },
-         });
-         setSeries(respo.data.results); 
-         console.log(respo.data.results);
+    const respo = await axios.get(`${apiUrl}/search/tv`, {
+      params: {
+        api_key: apiKey,
+        query: searchValue,
+      },
+    });
+    setSeries(respo.data.results);
+    console.log(respo.data.results);
 
-         setSearchValue("");
-    };
-    
+    setSearchValue("");
+  };
 
-  
+
+
   const globalProviderValue = {
     getMovies,
     searchValue,
@@ -45,11 +45,14 @@ function App() {
     series
   };
 
+
   return (
 
     <GlobalContext.Provider value={globalProviderValue}>
       <AppHeader />
-      <AppMain />
+      <section className="container">
+        <AppMain />
+      </section>
     </GlobalContext.Provider>
 
   )
