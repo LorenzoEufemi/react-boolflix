@@ -5,16 +5,16 @@ function AppCard({ title, original_title, poster, language, vote, overview }) {
 
     const urlImg = "https://image.tmdb.org/t/p/w342";
 
-    const flatLanguage = (language) => {
-        let flat = ""
+    const flagLanguage = (language) => {
+        let flag = ""
         if (language === "en") {
-            flat = "/images/en.png"
+            flag = "/images/en.png"
         } else if (language === "it") {
-            flat = "/images/it.png"
+            flag = "/images/it.png"
         } else {
-            flat = "/images/placeholder.png"
+            flag = "/images/placeholder.png"
         }
-        return flat
+        return flag
     };
 
     const starsFilm = (vote) => {
@@ -32,7 +32,7 @@ function AppCard({ title, original_title, poster, language, vote, overview }) {
                 <p className='minu'><span className='gras'>Titolo:</span> {title}</p>
                 <p className='minu'><span className='gras'>Titolo originale:</span> {original_title}</p>
                 <p className='yellow minu'><span className='white gras'>Voto:</span> {starsFilm(vote)}</p>
-                <img className='flat' src={flatLanguage(language)} alt="bandiera" />
+                <img className='flat' src={flagLanguage(language)} alt="bandiera" />
                 <p className='minu '><span className='gras'>Overview:</span> {overview}</p>
             </div>
             <div className='img'>
